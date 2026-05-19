@@ -135,3 +135,10 @@ The dataset is loaded from a public CSV URL with automatic schema inference. Bas
 - Install dependencies:  
   ```bash
   pip install pyspark pandas matplotlib seaborn requests
+
+1. Clone the repository
+git clone https://github.com/your-username/Iris-Classification-SparkMLlib.git
+cd Iris-Classification-SparkMLlib
+
+2. Open the Jupyter / PySpark Notebook
+3. Run all cells sequentially; fixed random seed ensures fully reproducible results.
