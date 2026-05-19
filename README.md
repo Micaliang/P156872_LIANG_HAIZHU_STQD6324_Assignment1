@@ -26,10 +26,10 @@ All models are optimised via **grid search** combined with **5‑fold cross‑va
   - Sepal length, Sepal width  
   - Petal length, Petal width  
 - **Classes**: Iris Setosa, Iris Versicolor, Iris Virginica  
-- **Characteristics**: No missing values.  
-  *Setosa is completely linearly separable from the other two species; Versicolor and Virginica exhibit natural feature overlap and are non‑linearly separable.*  
-
-The dataset is a standard benchmark for classification algorithms.
+- **Characteristics**:
+  - No missing values.
+  - Setosa is completely linearly separable from the other two species; Versicolor and Virginica exhibit natural feature overlap and are non‑linearly separable.
+  - The dataset is a standard benchmark for classification algorithms.
 
 ---
 
