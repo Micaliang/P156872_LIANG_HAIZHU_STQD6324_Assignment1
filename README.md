@@ -7,19 +7,19 @@
 ---
 ## Project Overview
 
-This project implements an end‑to‑end multiclass classification pipeline on the classic **Iris dataset** using **Apache Spark MLlib**. Three algorithms are implemented, hyperparameter‑tuned, and systematically compared:
+This project implements a complete classification pipeline on the classic **Iris dataset** using **Apache Spark MLlib**. Three classification algorithms are trained, tuned, and compared:
 
-- Multinomial Logistic Regression  
-- Decision Tree Classifier  
-- Random Forest Classifier  
+- Logistic Regression  
+- Decision Tree
+- Random Forest
 
-All models are optimised via **grid search** combined with **5‑fold cross‑validation**. Performance is evaluated using accuracy, precision, recall, and F1‑score. The best model is justified comprehensively. This work satisfies **Assignment 1 – STQD6324 Data Management, Semester 2 2025/2026**.
+All models are optimised via **grid search** combined with **5‑fold cross‑validation**. Performance is evaluated using accuracy, precision, recall, and F1‑score. The best model is justified comprehensively.
 
 ---
 
 ## Dataset Description
 
-- **Name**: Fisher’s Iris Dataset (R.A. Fisher, 1936)  
+- **Name**: Iris Dataset
 - **Source**: [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/iris)  
 - **Samples**: 150 instances, balanced (50 per class)  
 - **Features**: 4 continuous numeric attributes (unit: cm)  
