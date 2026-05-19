@@ -9,19 +9,17 @@
 
 This project implements a complete classification pipeline on the classic **Iris dataset** using **Apache Spark MLlib**. Three classification algorithms are trained, tuned, and compared:
 
-- Logistic Regression (multinomial)
+- Logistic Regression
 - Decision Tree
 - Random Forest
 
 All models are optimised using **5‑fold cross‑validation** and **grid search**. The best‑performing model is selected based on accuracy, precision, recall, and F1‑score.
 
-This work fulfills the requirements of **Assignment 1 (STQD6324 Data Management)**.
-
 ---
 
 ## Dataset Description
 
-- **Name**: Iris Dataset (Fisher’s Iris)
+- **Dataset Name**: Iris Dataset
 - **Source**: [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/iris) (loaded from a public CSV)
 - **Samples**: 150 instances
 - **Features** (4 numeric, cm): sepal length/width, petal length/width
