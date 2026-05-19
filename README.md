@@ -1,6 +1,8 @@
-# Iris-Classification-SparkMLlib
-STQD6324 Assignment 1 - Iris Classification with Spark MLlib
 # Iris Dataset Classification with Apache Spark MLlib
+**Student ID**: P156872  
+**Name**: LIANG HAIZHU  
+**Course**: STQD6324 Data Management  
+**Assignment**: Assignment 1
 
 ## Project Overview
 This project builds a complete end-to-end classification pipeline on the classic **Iris dataset** using **Apache Spark MLlib**.
