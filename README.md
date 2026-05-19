@@ -29,7 +29,6 @@ All models are optimised via **grid search** combined with **5‑fold cross‑va
 - **Characteristics**:
   - No missing values.
   - Setosa is completely linearly separable from the other two species; Versicolor and Virginica exhibit natural feature overlap and are non‑linearly separable.
-The dataset is a standard benchmark for classification algorithms.
 
 ---
 
@@ -40,7 +39,7 @@ Python libraries: `pyspark`, `pandas`, `matplotlib`, `seaborn`, `requests`.
 SparkSession created with app name `"Iris"`.
 
 ### 2. Data Loading & Exploration  
-CSV loaded from public URL, schema inferred. Basic checks confirm no missing values and balanced classes.
+The dataset is loaded from a public CSV URL with automatic schema inference. Basic exploratory analysis is performed to understand the data structure.
 
 ### 3. Preprocessing  
 - **Label encoding**: `StringIndexer` → numeric labels (Setosa=0, Versicolor=1, Virginica=2).  
