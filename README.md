@@ -7,88 +7,88 @@
 ---
 ## Project Overview
 
-This project implements a complete classification pipeline on the classic **Iris dataset** using **Apache Spark MLlib**. Three classification algorithms are trained, tuned, and compared:
+This project implements an end‑to‑end multiclass classification pipeline on the classic **Iris dataset** using **Apache Spark MLlib**. Three algorithms are implemented, hyperparameter‑tuned, and systematically compared:
 
-- Logistic Regression
-- Decision Tree
-- Random Forest
+- Multinomial Logistic Regression  
+- Decision Tree Classifier  
+- Random Forest Classifier  
 
-All models are optimised using **5‑fold cross‑validation** and **grid search**. The best‑performing model is selected based on accuracy, precision, recall, and F1‑score.
+All models are optimised via **grid search** combined with **5‑fold cross‑validation**. Performance is evaluated using accuracy, precision, recall, and F1‑score. The best model is justified comprehensively. This work satisfies **Assignment 1 – STQD6324 Data Management, Semester 2 2025/2026**.
 
 ---
 
 ## Dataset Description
 
-- **Dataset Name**: Iris Dataset
-- **Source**: [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/iris) (loaded from a public CSV)
-- **Samples**: 150 instances
-- **Features** (4 numeric, cm): sepal length/width, petal length/width
-- **Classes** (3 balanced, 50 each): Setosa, Versicolor, Virginica
+- **Name**: Fisher’s Iris Dataset (R.A. Fisher, 1936)  
+- **Source**: [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/iris)  
+- **Samples**: 150 instances, balanced (50 per class)  
+- **Features**: 4 continuous numeric attributes (unit: cm)  
+  - Sepal length, Sepal width  
+  - Petal length, Petal width  
+- **Classes**: Iris Setosa, Iris Versicolor, Iris Virginica  
+- **Characteristics**: No missing values.  
+  *Setosa is completely linearly separable from the other two species; Versicolor and Virginica exhibit natural feature overlap and are non‑linearly separable.*  
 
-The dataset is small, well‑balanced, and nearly linearly separable – ideal for demonstrating Spark MLlib classification pipelines.
+The dataset is a standard benchmark for classification algorithms.
 
 ---
 
 ## Methodology
 
-### 1. Environment & Spark Session
-- Python libraries: `pyspark`, `pandas`, `matplotlib`, `seaborn`, `requests`
-- SparkSession with app name `"Iris"`
+### 1. Environment & Spark Session  
+Python libraries: `pyspark`, `pandas`, `matplotlib`, `seaborn`, `requests`.  
+SparkSession created with app name `"Iris"`.
 
-### 2. Data Loading & Exploration
-- CSV loaded from a public URL, schema inferred.
-- Checked: no missing values, balanced classes, features on similar scales.
+### 2. Data Loading & Exploration  
+CSV loaded from public URL, schema inferred. Basic checks confirm no missing values and balanced classes.
 
-### 3. Preprocessing
-- **Label encoding**: `StringIndexer` → numeric labels (Setosa=0, Versicolor=1, Virginica=2)
-- **Feature assembly**: `VectorAssembler` → single `features` column
+### 3. Preprocessing  
+- **Label encoding**: `StringIndexer` → numeric labels (Setosa=0, Versicolor=1, Virginica=2).  
+- **Feature assembly**: `VectorAssembler` → single `features` column.
 
-### 4. Train‑Test Split
-- 80% training, 20% testing using `randomSplit([0.8, 0.2], seed=123)`
-- Result: 121 training, 29 test samples.
-- **Why seed=123?** This seed gave a test set size (29) closest to the expected 20% of 150 (30), improving evaluation stability.
+### 4. Train‑Test Split  
+- 80% training, 20% testing using `randomSplit([0.8, 0.2], seed=123)`.  
+- Result: **121 training, 29 test samples**.  
+- Fixed seed ensures the test set size is close to the expected 20% (≈30) for stable evaluation.
 
-### 5. Model Definition (Base)
-- `LogisticRegression` (family="multinomial")
-- `DecisionTreeClassifier`
+### 5. Base Model Definition  
+- `LogisticRegression` (family="multinomial")  
+- `DecisionTreeClassifier`  
 - `RandomForestClassifier` (initial `numTrees=50`, fixed `seed=123` for reproducibility)
 
-### 6. Model Tuning: Cross‑Validation + Grid Search
-- **Evaluator**: `MulticlassClassificationEvaluator` with `accuracy` as primary metric.
-- **Cross‑validation**: 5 folds – chosen because the dataset is small; 5 folds provide a more reliable performance estimate than 3 folds with minimal extra cost.
-- **Parallelism**: 4 tasks run simultaneously to speed up grid search.
-- **Reproducibility**: A fixed `seed=123` is passed to `CrossValidator` for consistent fold splits.
+### 6. Model Tuning: Grid Search & Cross‑Validation  
+
+**Evaluator**: `MulticlassClassificationEvaluator` (metric = accuracy).  
+**Cross‑validation**: 5 folds – reliable for small datasets.  
+**Parallelism**: 4 tasks to accelerate grid search.  
+**Reproducibility**: `seed=123` passed to `CrossValidator` for consistent fold splits.
 
 #### Hyperparameter Grids
 
-| Model | Parameters tuned | Candidate values |
-|-------|------------------|------------------|
-| Logistic Regression | `regParam`<br>`elasticNetParam`<br>`maxIter` | [0.01, 0.1, 1.0]<br>[0.0, 0.5, 1.0]<br>[10, 20, 50] |
-| Decision Tree | `maxDepth`<br>`maxBins`<br>`minInstancesPerNode` | [3, 5, 10]<br>[8, 16, 32]<br>[1, 2, 5] |
-| Random Forest | `numTrees`<br>`maxDepth`<br>`maxBins` | [10, 20, 50]<br>[3, 5, 10]<br>[8, 16, 32] |
+| Model | Parameter | Candidate Values |
+|-------|-----------|------------------|
+| **Logistic Regression** | `regParam`<br>`elasticNetParam`<br>`maxIter` | [0.01, 0.1, 1.0]<br>[0.0, 0.5, 1.0]<br>[10, 20, 50] |
+| **Decision Tree** | `maxDepth`<br>`maxBins`<br>`minInstancesPerNode` | [3, 5, 10]<br>[8, 16, 32]<br>[1, 2, 5] |
+| **Random Forest** | `numTrees`<br>`maxDepth`<br>`maxBins` | [10, 20, 50]<br>[3, 5, 10]<br>[8, 16, 32] |
 
-#### Optimal Hyperparameters (from cross‑validation)
-- **Logistic Regression**: `regParam=0.01`, `elasticNetParam=0.0`, `maxIter=10`  
-  → mild L2 (Ridge) regularisation, fast convergence.
-- **Decision Tree**: `maxDepth=5`, `maxBins=32`, `minInstancesPerNode=1`  
-  → moderately deep tree with fine‑grained bins, avoids overfitting.
-- **Random Forest**: `numTrees=20`, `maxDepth=3`, `maxBins=16`  
-  → small ensemble, shallow trees, balanced granularity.
+#### Optimal Hyperparameters (after cross‑validation)
 
-### 7. Evaluation Metrics
-- Accuracy (main)
-- Weighted Precision, Weighted Recall, F1‑Score
+| Model | Best Parameters |
+|-------|------------------|
+| Logistic Regression | `regParam=0.01`, `elasticNetParam=0.0`, `maxIter=10`<br>(mild L2 regularisation, fast convergence) |
+| Decision Tree | `maxDepth=5`, `maxBins=32`, `minInstancesPerNode=1`<br>(moderate depth, fine‑grained bins) |
+| Random Forest | `numTrees=20`, `maxDepth=3`, `maxBins=16`<br>(small ensemble, shallow trees) |
 
-A reusable `evaluate_model` function computes all metrics. Confusion matrices are visualised using Seaborn.
+### 7. Model Evaluation  
+- Metrics: Accuracy, Weighted Precision, Weighted Recall, F1‑Score.  
+- A reusable `evaluate_model` function computes all metrics.  
+- Confusion matrices visualised using Seaborn.  
+- Sample predictions (first 5 test instances) displayed with probability vectors.
 
-### 8. Prediction Generation
-The optimised models generate predictions on the test set, showing the predicted class and probability vector for the first 5 samples.
-
-### 9. Comparative Analysis
-- Performance table (all metrics)
-- Bar chart comparing accuracy and F1
-- Discussion of strengths/limitations per model
-- Justification of the best model
+### 8. Comparative Analysis  
+- Performance table & bar chart.  
+- Strengths and limitations of each model discussed.  
+- Best model justified.
 
 ---
 
@@ -96,17 +96,18 @@ The optimised models generate predictions on the test set, showing the predicted
 
 ### Test Set Performance (29 samples)
 
-| Model                 | Accuracy | Precision | Recall | F1‑Score |
-|-----------------------|----------|-----------|--------|----------|
-| Logistic Regression   | **0.9655** | **0.9690** | **0.9655** | **0.9649** |
-| Decision Tree         | 0.9310   | 0.9310    | 0.9310 | 0.9310   |
-| Random Forest         | **0.9655** | **0.9690** | **0.9655** | **0.9649** |
+| Model | Accuracy | Precision | Recall | F1‑Score |
+|-------|----------|-----------|--------|----------|
+| **Logistic Regression** | **0.9655** | **0.9690** | **0.9655** | **0.9649** |
+| Decision Tree | 0.9310 | 0.9310 | 0.9310 | 0.9310 |
+| **Random Forest** | **0.9655** | **0.9690** | **0.9655** | **0.9649** |
 
-### Confusion Matrices
+### Confusion Matrix Summary
+
 - **Logistic Regression**: 1 misclassification (Versicolor → Virginica).  
-  Setosa: 14/14, Versicolor: 5/6, Virginica: 9/9.
+  Setosa: 14/14, Versicolor: 5/6, Virginica: 9/9.  
 - **Decision Tree**: 2 misclassifications (Versicolor → Virginica, Virginica → Versicolor).  
-  Setosa: 14/14, Versicolor: 5/6, Virginica: 8/9.
+  Setosa: 14/14, Versicolor: 5/6, Virginica: 8/9.  
 - **Random Forest**: 1 misclassification (Versicolor → Virginica).  
   Setosa: 14/14, Versicolor: 5/6, Virginica: 9/9.
 
@@ -114,28 +115,24 @@ The optimised models generate predictions on the test set, showing the predicted
 
 | Model | Strengths | Limitations |
 |-------|-----------|--------------|
-| **Logistic Regression** | High accuracy (0.9655), simple and fast, interpretable probabilities | Only linear boundaries; cannot capture complex non‑linear patterns |
-| **Decision Tree** | Non‑linear, highly interpretable rules, no scaling needed | Lower accuracy (0.9310), prone to overfitting, less stable |
-| **Random Forest** | Matches logistic regression accuracy, ensemble reduces overfitting, robust to noise | More complex, slower to train, less interpretable than a single tree |
+| **Logistic Regression** | High accuracy (0.9655), simple & fast, interpretable probabilities | Only linear boundaries, cannot capture complex non‑linear patterns |
+| **Decision Tree** | Non‑linear, transparent rules, no feature scaling needed | Lower accuracy (0.9310), overfitting‑prone, unstable |
+| **Random Forest** | Matches logistic regression accuracy, ensemble reduces overfitting, robust to noise | More complex, slower to train, less interpretable |
 
 ### Best Model Justification
-**Logistic Regression** is selected as the best model because:
-1. It achieves the **highest accuracy (0.9655)** together with Random Forest.
-2. It is **simpler, faster to train, and more interpretable** than Random Forest.
-3. The Iris dataset is nearly linearly separable – a linear model is both sufficient and optimal.
+
+**Logistic Regression** is selected as the optimal model because:
+
+1. It achieves the **highest accuracy (0.9655)** – tied with Random Forest.  
+2. It is **simpler, faster to train, and more interpretable** than Random Forest.  
+3. The Iris dataset is nearly linearly separable, making a linear model both sufficient and efficient.
 
 ---
 
 ## How to Reproduce the Analysis
 
-### Prerequisites
-- Python 3.8+
-- Apache Spark (installed via `pip install pyspark`)
-
-### Steps
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/your-username/Iris-Classification-SparkMLlib.git
-   cd Iris-Classification-SparkMLlib
-
+### Prerequisites  
+- Python 3.8+  
+- Install dependencies:  
+  ```bash
+  pip install pyspark pandas matplotlib seaborn requests
