@@ -3,7 +3,6 @@
 **Name**: LIANG HAIZHU  
 **Course**: STQD6324 Data Management  
 **Assignment**: Assignment 1
-
 ---
 
 # Iris Dataset Classification with Apache Spark MLlib
