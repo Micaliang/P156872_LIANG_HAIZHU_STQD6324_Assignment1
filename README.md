@@ -3,10 +3,8 @@
 **Name**: LIANG HAIZHU  
 **Course**: STQD6324 Data Management  
 **Assignment**: Assignment 1
+
 ---
-
-# Iris Dataset Classification with Apache Spark MLlib
-
 ## Project Overview
 
 This project implements a complete classification pipeline on the classic **Iris dataset** using **Apache Spark MLlib**. Three classification algorithms are trained, tuned, and compared:
