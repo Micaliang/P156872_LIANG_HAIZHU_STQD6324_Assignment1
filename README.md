@@ -92,15 +92,14 @@ The dataset is loaded from a public CSV URL with automatic schema inference. Bas
 | Model | Parameter | Candidate Values |
 |-------|-----------|------------------|
 | **Logistic Regression** | regParam | [0.01, 0.1, 1.0] |
-| | elasticNetParam | [0.0, 0.5, 1.0] |
-| | maxIter | [10, 20, 50] |
+|  | elasticNetParam | [0.0, 0.5, 1.0] |
+|  | maxIter | [10, 20, 50] |
 | **Decision Tree** | maxDepth | [3, 5, 10] |
-| | maxBins | [8, 16, 32] |
-| | minInstancesPerNode | [1, 2, 5] |
+|  | maxBins | [8, 16, 32] |
+|  | minInstancesPerNode | [1, 2, 5] |
 | **Random Forest** | numTrees | [10, 20, 50] |
-| | maxDepth | [3, 5, 10] |
-| | maxBins | [8, 16, 32] |
-
+|  | maxDepth | [3, 5, 10] |
+|  | maxBins | [8, 16, 32] |
 
 
 
