@@ -138,6 +138,16 @@ Each model’s confusion matrix visualises classification performance, with key 
 
 ---
 
+### Model Performance Comparison
+
+The bar chart below summarises the test set performance of all three models, comparing **Accuracy** and **F1-Score**:
+
+<img src="images/model_comparison.png" width="450">
+
+- **Logistic Regression** and **Random Forest** perform equally well, with Accuracy and F1-Score around 0.965.
+- **Decision Tree** shows slightly lower performance, with both metrics around 0.931.
+- The consistent results indicate that both linear and ensemble methods work well on this dataset, while the single decision tree is more prone to misclassifications between similar classes.
+
 ### Model Strengths & Limitations
 
 | Model | Strengths | Limitations |
