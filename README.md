@@ -148,6 +148,8 @@ The bar chart below summarises the test set performance of all three models, com
 - The Decision Tree performs **noticeably lower**, with both metrics around 0.931.
 - This shows that Logistic Regression and Random Forest are the top-performing models on this dataset.
 
+---
+
 ### Model Strengths & Limitations
 
 | Model | Strengths | Limitations |
