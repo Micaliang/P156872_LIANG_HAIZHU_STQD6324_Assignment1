@@ -170,15 +170,12 @@ The bar chart below summarises the test set performance of all three models, com
 
 ## How to Reproduce the Analysis
 
-### Prerequisites  
-- Python 3.8+  
-- Install dependencies:  
-  ```bash
-  pip install pyspark pandas matplotlib seaborn requests
+### Prerequisites
+- Python 3.8+
+- Install required libraries:
+  pip install pyspark pandas matplotlib seaborn
 
-1. Clone the repository  
-git clone https://github.com/Micaliang/Iris-Classification-SparkMLlib.git  
-cd Iris-Classification-SparkMLlib  
-
-2. Open the Jupyter / PySpark Notebook
-3. Run all cells sequentially; fixed random seed ensures fully reproducible results.
+### Steps
+1. Open the notebook: P156872_LIANG_HAIZHU_Iris_Classification_SparkMLlib_20250516.ipynb
+2. Run all cells sequentially
+3. Results are reproducible with fixed random seeds
