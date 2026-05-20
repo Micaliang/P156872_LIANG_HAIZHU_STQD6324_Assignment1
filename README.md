@@ -111,14 +111,14 @@ The dataset is loaded from a public CSV URL with automatic schema inference. Bas
 Each model’s confusion matrix visualises classification performance, with key observations below:
 
 #### Logistic Regression
-![Confusion Matrix - Logistic Regression](images/confusion_lr.png)
+<img src="images/confusion_lr.png" width="500">
 - **1 misclassification**: One Versicolor sample was incorrectly predicted as Virginica.
 - Class-wise performance: Setosa (14/14), Versicolor (5/6), Virginica (9/9).
 
 ---
 
 #### Decision Tree
-![Confusion Matrix - Logistic Regression](images/confusion_dt.png)
+<img src="images/confusion_dt.png" width="500">
 - **2 misclassifications**: 
   1. One Versicolor sample predicted as Virginica
   2. One Virginica sample predicted as Versicolor
@@ -127,7 +127,7 @@ Each model’s confusion matrix visualises classification performance, with key 
 ---
 
 #### Random Forest
-![Confusion Matrix - Logistic Regression](images/confusion_rf.png)
+<img src="images/confusion_rf.png" width="500">
 - **1 misclassification**: One Versicolor sample was incorrectly predicted as Virginica.
 - Class-wise performance: Setosa (14/14), Versicolor (5/6), Virginica (9/9).
 
