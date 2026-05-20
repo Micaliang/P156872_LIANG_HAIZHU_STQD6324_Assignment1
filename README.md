@@ -136,6 +136,8 @@ Each model’s confusion matrix visualises classification performance, with key 
 - One Versicolor sample was incorrectly predicted as Virginica.
 - Class-wise performance: Setosa (14/14), Versicolor (5/6), Virginica (9/9).
 
+---
+
 ### Model Strengths & Limitations
 
 | Model | Strengths | Limitations |
