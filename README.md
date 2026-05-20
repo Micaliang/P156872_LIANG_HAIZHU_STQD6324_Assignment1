@@ -69,7 +69,6 @@ The dataset is loaded from a public CSV URL with automatic schema inference. Bas
 
 #### Hyperparameter Grids
 
-#### Hyperparameter Grids
 | Model | Parameter | Candidate Values |
 |-------|-----------|------------------|
 | **Logistic Regression** | `regParam`<br>`elasticNetParam`<br>`maxIter` | `[0.01, 0.1, 1.0]`<br>`[0.0, 0.5, 1.0]`<br>`[10, 20, 50]` |
