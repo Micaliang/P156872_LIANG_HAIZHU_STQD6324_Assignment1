@@ -28,7 +28,8 @@ All models are optimised via **grid search** combined with **5‑fold cross‑va
 - **Classes**: Iris Setosa, Iris Versicolor, Iris Virginica  
 - **Characteristics**:
   - No missing values.
-  - Setosa is completely linearly separable from the other two species; Versicolor and Virginica exhibit natural feature overlap and are non‑linearly separable.
+  - Setosa is completely linearly separable from the other two species.
+  - Versicolor and Virginica exhibit natural feature overlap and are non‑linearly separable.
 
 ---
 
