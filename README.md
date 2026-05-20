@@ -111,7 +111,7 @@ The dataset is loaded from a public CSV URL with automatic schema inference. Bas
 Each model’s confusion matrix visualises classification performance, with key observations below:
 
 #### Logistic Regression
-<img src="images/confusion_lr.png" width="400">  
+<img src="images/confusion_lr.png" width="450">  
 
 - **1 misclassification**:
 - One Versicolor sample was incorrectly predicted as Virginica.
@@ -120,7 +120,7 @@ Each model’s confusion matrix visualises classification performance, with key 
 ---
 
 #### Decision Tree
-<img src="images/confusion_dt.png" width="400">  
+<img src="images/confusion_dt.png" width="450">  
 
 - **2 misclassifications**: 
   1. One Versicolor sample predicted as Virginica
@@ -130,7 +130,7 @@ Each model’s confusion matrix visualises classification performance, with key 
 ---
 
 #### Random Forest
-<img src="images/confusion_rf.png" width="400">  
+<img src="images/confusion_rf.png" width="450">  
 
 - **1 misclassification**:
 - One Versicolor sample was incorrectly predicted as Virginica.
