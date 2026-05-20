@@ -54,7 +54,11 @@ The dataset is loaded from a public CSV URL with automatic schema inference. Bas
 ### 5. Base Model Definition  
 - `LogisticRegression` (family="multinomial")  
 - `DecisionTreeClassifier`  
-- `RandomForestClassifier` (initial `numTrees=50`, fixed `seed=123` for reproducibility)
+- `RandomForestClassifier` (initial `numTrees=50`, fixed `seed=123` for reproducibility)  
+
+> **Note**: These are initial baseline parameters, which will be further tuned via grid search.
+> To ensure full reproducibility, a fixed `seed=123` is set for Random Forest, as it relies on random bootstrap sampling.
+> Logistic Regression and Decision Tree are deterministic algorithms and do not require a seed for consistent results.
 
 ### 6. Model Tuning: Grid Search & Cross‑Validation  
 
