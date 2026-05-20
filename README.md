@@ -173,7 +173,7 @@ The bar chart below summarises the test set performance of all three models, com
 ### Prerequisites
 - Python 3.8+
 - Install required libraries:
-```bash
+  ```bash
   pip install pyspark pandas matplotlib seaborn
 
 
