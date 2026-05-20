@@ -177,6 +177,6 @@ The bar chart below summarises the test set performance of all three models, com
   pip install pyspark pandas matplotlib seaborn
 
 ### Steps
-1.  Open the notebook: [`P156872_LIANG_HAIZHU_Iris_SparkMLlib.ipynb`(https://github.com/Micaliang/P156872_LIANG_HAIZHU_STQD6324_Assignment1/blob/main/P156872_LIANG_HAIZHU_Iris_SparkMLlib.ipynb)
+1. Open the notebook: [`P156872_LIANG_HAIZHU_Iris_SparkMLlib.ipynb`](https://github.com/Micaliang/P156872_LIANG_HAIZHU_STQD6324_Assignment1/blob/main/P156872_LIANG_HAIZHU_Iris_SparkMLlib.ipynb)
 3. Run all cells sequentially.
 4. Results are reproducible with fixed random seeds.
