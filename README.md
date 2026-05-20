@@ -13,7 +13,7 @@ This project implements a complete classification pipeline on the classic **Iris
 - Decision Tree
 - Random Forest
 
-All models are optimised via **grid search** combined with **5‑fold cross‑validation**. Performance is evaluated using accuracy, precision, recall, and F1‑score. The best model is justified comprehensively.
+All models are optimised via **grid search** combined with **5‑fold cross‑validation**. Performance is evaluated using `accuracy`, `precision`, `recall`, and `F1‑score`. The best model is justified comprehensively.
 
 ---
 
