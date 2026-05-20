@@ -113,7 +113,7 @@ Each model’s confusion matrix visualises classification performance, with key 
 #### Logistic Regression
 <img src="images/confusion_lr.png" width="450">  
 
-- **「⚠️」1 misclassification**:
+⚠️**1 misclassification**:
 - One Versicolor sample was incorrectly predicted as Virginica.
 - Class-wise performance: Setosa (14/14), Versicolor (5/6), Virginica (9/9).
 
@@ -122,7 +122,7 @@ Each model’s confusion matrix visualises classification performance, with key 
 #### Decision Tree
 <img src="images/confusion_dt.png" width="450">  
 
-- 「⚠️」**2 misclassifications**: 
+⚠️**2 misclassifications**: 
   1. One Versicolor sample predicted as Virginica
   2. One Virginica sample predicted as Versicolor
 - Class-wise performance: Setosa (14/14), Versicolor (5/6), Virginica (8/9).
@@ -132,7 +132,7 @@ Each model’s confusion matrix visualises classification performance, with key 
 #### Random Forest
 <img src="images/confusion_rf.png" width="450">  
 
-- 「⚠️」**1 misclassification**:
+⚠️**1 misclassification**:
 - One Versicolor sample was incorrectly predicted as Virginica.
 - Class-wise performance: Setosa (14/14), Versicolor (5/6), Virginica (9/9).
 
