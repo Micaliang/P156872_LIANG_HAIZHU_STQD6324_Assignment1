@@ -109,13 +109,9 @@ The dataset is loaded from a public CSV URL with automatic schema inference. Bas
 ### Confusion Matrix Summary
 
 - **Logistic Regression**:
-![Confusion Matrix - Logistic Regression](images/confusion_lr.png)
-
 - 1 misclassification (Versicolor → Virginica).
 - Setosa: 14/14, Versicolor: 5/6, Virginica: 9/9.  
 - **Decision Tree**:
-![Confusion Matrix - Decision Tree](images/confusion_dt.png)
-  
 - 2 misclassifications (Versicolor → Virginica, Virginica → Versicolor).  
   Setosa: 14/14, Versicolor: 5/6, Virginica: 8/9.  
 - **Random Forest**: 1 misclassification (Versicolor → Virginica).  
