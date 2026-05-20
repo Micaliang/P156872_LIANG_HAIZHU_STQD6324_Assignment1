@@ -176,7 +176,6 @@ The bar chart below summarises the test set performance of all three models, com
   ```bash
   pip install pyspark pandas matplotlib seaborn
 
-
 ### Steps
 1. Open the notebook: P156872_LIANG_HAIZHU_Iris_SparkMLlib.ipynb
 2. Run all cells sequentially
