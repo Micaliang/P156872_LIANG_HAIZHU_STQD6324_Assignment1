@@ -144,9 +144,9 @@ The bar chart below summarises the test set performance of all three models, com
 
 <img src="images/mpc.png" width="600">
 
-- **Logistic Regression** and **Random Forest** perform equally well, with Accuracy and F1-Score around 0.965.
-- **Decision Tree** shows slightly lower performance, with both metrics around 0.931.
-- The consistent results indicate that both linear and ensemble methods work well on this dataset, while the single decision tree is more prone to misclassifications between similar classes.
+- Logistic Regression and Random Forest perform **identically**, with both Accuracy and F1-score around 0.965.
+- The Decision Tree performs **noticeably lower**, with both metrics around 0.931.
+- This shows that Logistic Regression and Random Forest are the top-performing models on this dataset.
 
 ### Model Strengths & Limitations
 
